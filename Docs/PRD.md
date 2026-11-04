@@ -15,7 +15,7 @@ The website will be developed using ASP.NET Core MVC with Bootstrap 5 and custom
 - Present personal and academic projects with detailed descriptions.
 - Provide recruiters with easy access to my CV and contact information.
 - Demonstrate practical knowledge of ASP.NET Core MVC and frontend development.
-- Deploy the portfolio using a free hosting platform initially.
+- Deploy the portfolio using a free hosting platform initially using Monster Asp.Net.
 
 ## 3. Target Audience
 
