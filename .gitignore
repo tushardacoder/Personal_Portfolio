@@ -1,0 +1,21 @@
+## Build output
+bin/
+obj/
+out/
+artifacts/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+appsettings.Local.json
+
+## IDE files
+.vs/
+.vscode/
+.idea/
+
+## Logs and temporary files
+*.log
+*.tmp

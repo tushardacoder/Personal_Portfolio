@@ -95,22 +95,19 @@ Include:
 Display professional experience and training.
 
 Initial entries:
-- Goinnovior Limited – 4-month internship.
-- CodeCamp ServerCamp – Backend development training.
+- Goinnovior Limited – Software Engineering internship (October 2025–January 2026).
+- CodeCamp ServerCamp – Backend development training (January–June 2026).
 
 ### FR-07: Education and Achievements
 Display:
 - B.Sc. in Computer Science and Engineering – Independent University, Bangladesh.(2020-2025 Aug)
-- DBMS TechFest Champion.
-- Relevant certifications and workshops.
-- Leetcode achievements, including 500+ solved problems.
+- DBMS TechFest Champion 2023.
+- Astha IT certificate.
+- Link to the LeetCode profile.
 
 ### FR-08: Contact Section
-- Display email and social profile links.
-- Provide a contact form.
-- Validate user input using ASP.NET Core MVC model validation.
-- Include spam protection where appropriate.
-- Show success and error feedback.
+- Display clickable GitHub, LinkedIn, and email links with recognizable icons.
+- Open the visitor's GitHub and LinkedIn profiles in a new tab and open an email draft addressed to tusharbasak041@gmail.com.
 
 ### FR-09: Theme Management
 - Support light and dark themes.
@@ -132,9 +129,7 @@ Display:
 
 ### Security
 - Use HTTPS.
-- Use anti-forgery validation for POST forms.
 - Avoid exposing sensitive configuration.
-- Protect contact functionality from spam.
 
 ### Maintainability
 - Follow ASP.NET Core MVC conventions.
@@ -155,7 +150,7 @@ Display:
 | Home | `/` | Introduction and overview |
 | Projects | `/projects` | Project collection |
 | Project Details | `/projects/{slug}` | Individual project information |
-| Contact | `/contact` | Contact information and form |
+| Contact | `/contact` | Social profiles and direct email link |
 
 The Home page will also contain About, Skills, Experience, Education, and Achievements sections.
 
@@ -187,8 +182,8 @@ The Home page will also contain About, Skills, Experience, Education, and Achiev
 - Frontend-only project.
 
 ### Professional Experience
-- Goinnovior Limited – Internship.
-- CodeCamp ServerCamp – Backend development training.
+- Goinnovior Limited – Internship (October 2025–January 2026).
+- CodeCamp ServerCamp – Backend development training (January–June 2026).
 
 ## 9. Out of Scope for MVP
 

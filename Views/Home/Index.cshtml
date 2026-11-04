@@ -1,0 +1,32 @@
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Tushar Basak | Software Engineer";
+}
+
+<section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+        <p class="availability"><span></span> Open to software engineering opportunities</p>
+        <h1 id="hero-title">I build thoughtful<br /><span>software for the web.</span></h1>
+        <p class="hero-lede">I’m Tushar, a software engineer focused on backend engineering with C# and ASP.NET Core. I care about clear architecture, useful products, and the details that make software dependable.</p>
+        <div class="hero-actions"><a class="button button-primary" href="/projects">Explore my work</a><a class="button button-secondary" href="https://drive.google.com/file/d/1i0RckjCGtGQ6pSzPXgcjzTez_ajDzD-G/view?usp=sharing" target="_blank" rel="noopener noreferrer">View my CV <span aria-hidden="true">↗</span></a></div>
+        <div class="social-links" aria-label="Social links"><a href="https://github.com/tushardacoder" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/tusharbasak/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:tusharbasak041@gmail.com">Email</a></div>
+    </div>
+    <aside class="hero-note profile-card" aria-label="Portrait of Tushar Basak">
+        <div class="portrait-frame"><img class="portrait-image" src="https://i.postimg.cc/z3ZQWVMy/Tushar-Basak.jpg" alt="Portrait of Tushar Basak" fetchpriority="high" /><div class="portrait-fallback" hidden aria-hidden="true">TB</div></div>
+        <div class="note-top profile-caption"><span><strong>Tushar Basak</strong><br />Software engineer · Dhaka</span><span class="note-mark" aria-hidden="true">TB</span></div>
+    </aside>
+</section>
+
+<section class="section section-tinted" id="about"><div class="wrap about-grid"><div><p class="section-kicker">A little about me</p><h2>Curious by nature.<br />Engineer by practice.</h2></div><div class="about-copy"><p>I’m a Computer Science and Engineering graduate from Independent University, Bangladesh. My strongest interest is backend development: shaping APIs, organizing domain logic, and making the pieces work together cleanly.</p><p>Outside backend work, I’ve built frontend projects and enjoy learning across the stack. I’m now looking to bring that curiosity and care to a collaborative engineering team.</p><a class="text-link" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a></div></div></section>
+
+<section class="section wrap" id="projects"><div class="section-heading"><div><p class="section-kicker">Selected work</p><h2>Projects with a purpose.</h2></div><a class="text-link" href="/projects">All projects <span aria-hidden="true">↗</span></a></div>
+    <div class="project-list">@foreach (var project in Model.FeaturedProjects) { <article class="project-row"><span class="project-number">@project.Number</span><div class="project-main"><p class="project-category">@project.Category</p><h3><a asp-controller="Projects" asp-action="Details" asp-route-slug="@project.Slug">@project.Name</a></h3><p>@project.Summary</p><div class="tag-list">@foreach (var tech in project.Technologies.Take(4)) { <span>@tech</span> }</div></div><a class="row-arrow" asp-controller="Projects" asp-action="Details" asp-route-slug="@project.Slug" aria-label="View @project.Name details">↗</a></article> }</div>
+</section>
+
+<section class="section section-tinted" id="skills"><div class="wrap"><div class="section-heading"><div><p class="section-kicker">Tools I work with</p><h2>Built across the stack.</h2></div><p class="heading-aside">A practical toolkit, chosen for the problem at hand.</p></div><div class="skills-grid">@foreach (var group in Model.SkillGroups) { <div class="skill-group"><h3>@group.Name</h3><ul>@foreach (var skill in group.Skills) { <li>@skill</li> }</ul></div> }</div></div></section>
+
+<section class="section wrap" id="experience"><div class="section-heading"><div><p class="section-kicker">Experience</p><h2>Learning by building.</h2></div></div><div class="timeline">@foreach (var item in Model.Experience) { <article class="timeline-entry"><span class="timeline-dot"></span><div class="timeline-meta"><h3>@item.Role</h3><p>@item.Organization</p></div><div><p class="timeline-period">@item.Period</p><p class="timeline-detail">@item.Description</p></div></article> }</div></section>
+
+<section class="section section-tinted" id="education"><div class="wrap credentials-grid"><div><p class="section-kicker">Education</p><h2>Grounded in<br />computer science.</h2><div class="education-entry"><h3>@Model.Education.Degree</h3><p>@Model.Education.Institution</p><span>@Model.Education.Period · @Model.Education.Result</span></div></div><div><p class="section-kicker">Achievements</p><h2>Milestones<br />along the way.</h2><div class="achievement-list">@foreach (var item in Model.Achievements) { <article><h3>@item.Title</h3><p>@item.Detail</p>@if (item.Url is not null && item.LinkText is not null) { <a href="@item.Url" target="_blank" rel="noopener noreferrer">@item.LinkText <span aria-hidden="true">↗</span></a> }</article> }</div></div></div></section>
+
+<section class="contact-band wrap" id="contact"><div><p class="section-kicker">Have a role or project in mind?</p><h2>Let’s make something<br />useful together.</h2></div><a class="button button-primary" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></section>

@@ -15,7 +15,6 @@ The initial implementation will use static C# data rather than a database becaus
 | ASP.NET Core MVC | Backend web framework |
 | MVC Pattern | Separation of application responsibilities |
 | Razor Views | Dynamic HTML rendering |
-| Model Validation | Server-side form validation |
 | Dependency Injection | Managing service dependencies |
 
 ## 3. Frontend Technologies
@@ -66,17 +65,9 @@ No database is required for the initial version.
 
 A database can be introduced later if dynamic content management becomes necessary.
 
-## 6. Contact Form
+## 6. Contact Links
 
-The contact form will use:
-
-- ASP.NET Core MVC POST actions.
-- ViewModel-based validation.
-- Data Annotation attributes.
-- Anti-forgery token validation.
-- External form provider or email integration.
-
-Email delivery must be tested against the selected hosting provider's restrictions. Do not assume free hosting supports outbound SMTP.
+The contact page provides direct GitHub, LinkedIn, and email links. Social profiles open in a new tab; the email link opens a draft addressed to tusharbasak041@gmail.com. No contact form, server-side email service, or SMTP configuration is used.
 
 ## 7. Testing
 
@@ -85,7 +76,7 @@ Email delivery must be tested against the selected hosting provider's restrictio
 | NUnit | Unit testing |
 | Shouldly | Readable test assertions |
 
-Testing will focus on important application logic, especially project data services and contact validation.
+Testing will focus on important application logic, especially project data services.
 
 ## 8. Development Tools
 
@@ -107,9 +98,9 @@ Deployment requirements:
 - Publish ASP.NET Core application.
 - Configure production environment settings.
 - Verify HTTPS.
-- Test all routes.
+- Test all routes and contact links.
 - Verify CV and project image paths.
-- Test the contact form.
+- Verify the GitHub, LinkedIn, and email links.
 - Verify mobile responsiveness.
 
 ## 10. Final Technology Stack

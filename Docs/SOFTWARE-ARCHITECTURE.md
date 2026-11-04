@@ -63,13 +63,10 @@ Services contain reusable application logic.
 Services:
 - IPortfolioService
 - PortfolioService
-- IContactService
-- ContactService
 Responsibilities:
 - Retrieve portfolio information.
 - Retrieve project information.
 - Retrieve skills and experience.
-- Process contact form requests.
 - Keep controllers lightweight.
 3.4 Model and ViewModel Layer
 Models represent portfolio data.
@@ -84,9 +81,8 @@ ViewModels represent data required by individual views.
 
 ViewModels:
 - HomeViewModel
-- ContactViewModel
 - ProjectDetailsViewModel
-ViewModels also support server-side form validation.
+The contact page uses native browser validation and a JavaScript mailto action; no contact POST model is required.
 3.5 Data Layer
 The initial implementation uses static C# data.
 
@@ -207,16 +203,13 @@ TusharPortfolio/
 │
 ├── ViewModels/
 │   ├── HomeViewModel.cs
-│   ├── ContactViewModel.cs
 │   └── ProjectDetailsViewModel.cs
 │
 ├── Services/
 │   ├── Interfaces/
 │   │   ├── IPortfolioService.cs
-│   │   └── IContactService.cs
 │   │
 │   ├── PortfolioService.cs
-│   └── ContactService.cs
 │
 ├── Data/
 │   └── PortfolioData.cs
@@ -275,16 +268,11 @@ Homepage Request Flow
 7. Controller passes the data to Views/Home/Index.cshtml.
 8. Razor renders HTML.
 9. Browser displays the homepage.
-Contact Form Flow
+Contact Link Flow
 1. Visitor opens /contact.
-2. Contact view displays the form.
-3. Visitor submits the form.
-4. Browser sends POST /contact.
-5. MVC validates the submitted ViewModel.
-6. If invalid, the form is returned with validation messages.
-7. If valid, the controller calls IContactService.
-8. The service processes the contact request.
-9. The visitor receives a success or error message.
+2. Contact view displays GitHub, LinkedIn, and email links with recognizable icons.
+3. GitHub and LinkedIn open the portfolio owner's profiles in a new tab.
+4. Email opens a draft addressed to the portfolio owner in the visitor's email app.
 
 7. Routing Design
 HTTP Method	Route	Controller Action
@@ -292,7 +280,6 @@ GET	/	HomeController.Index
 GET	/projects	ProjectsController.Index
 GET	/projects/{slug}	ProjectsController.Details
 GET	/contact	ContactController.Index
-POST	/contact	ContactController.Index
 
 A fallback route will handle unknown pages.
 
@@ -303,11 +290,6 @@ Example:
 builder.Services.AddScoped<
     IPortfolioService,
     PortfolioService>();
-
-builder.Services.AddScoped<
-    IContactService,
-    ContactService>();
-
 
 Controllers will receive their dependencies through constructor injection.
 
@@ -398,13 +380,12 @@ Footer Text	Soft Off-White	#F8FAFC
 - Maintain consistent spacing, typography, and color usage across all pages.
 4. Theme Preference
 Setting	Description
-Default Theme	Light Theme
-Dark Theme	Optional future enhancement
+Default Theme	System preference on first visit (light when unavailable)
+Dark Theme	Included in the first release
 Theme Management	CSS Custom Properties
-Theme Switching	Not required initially
+Theme Switching	Toggle persisted with localStorage
 
-Note: The initial implementation will support only the Light Theme. The CSS variable structure will make it easier to introduce a Dark Theme in the future without significantly changing the existing styles.
-JavaScript will manage theme selection and persist user preferences using localStorage.
+JavaScript applies the system color preference on a first visit and persists the visitor's explicit theme selection using localStorage.
 Responsive Layout
 Use Bootstrap 5 breakpoints and grid utilities to support:
 - Mobile.
@@ -423,12 +404,9 @@ Visual Style
 
 11. Security Architecture
 - HTTPS enabled.
-- Server-side form validation.
-- Anti-forgery tokens for POST requests.
 - No secrets committed to GitHub.
 - External services configured through environment variables or secure configuration.
-- Contact form spam protection.
-- Input validation and safe output rendering.
+- Safe output rendering.
 
 12. Deployment Architecture
 

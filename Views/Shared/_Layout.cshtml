@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#f8fafc" />
+    <title>@ViewData["Title"] · Tushar Basak</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("tushar-portfolio-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch { document.documentElement.dataset.theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /><link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><nav class="wrap navigation" aria-label="Main navigation"><a class="wordmark" href="/" aria-label="Tushar Basak home"><span class="wordmark-icon">tb.</span><span>Tushar Basak</span></a><div class="nav-links"><a href="/#about">About</a><a href="/projects">Projects</a><a href="/#experience">Experience</a><a href="/contact">Contact</a><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Dark</span></button></div></nav></header>
+    <main id="main-content">@RenderBody()</main>
+    <footer class="site-footer"><div class="wrap footer-inner"><a class="wordmark" href="/"><span class="wordmark-icon">tb.</span><span>Tushar Basak</span></a><p>Software engineer · Dhaka, Bangladesh</p><div class="footer-links"><a href="https://github.com/tushardacoder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/tusharbasak/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:tusharbasak041@gmail.com">Email</a></div><small>© @DateTime.Now.Year Tushar Basak</small></div></footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
